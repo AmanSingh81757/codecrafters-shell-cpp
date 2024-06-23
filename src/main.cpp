@@ -17,6 +17,7 @@ int main() {
       if(input.substr(5) == "exit") std::cout << "exit is a shell builtin\n";
       if(input.substr(5) == "type") std::cout << "type is a shell builtin\n";
       else std::cout << input.substr(5) << ": command not found\n";
+      std::cout << "$ ";
     }
     else std::cout << input << ": command not found\n";
     std::cout << "$ ";
