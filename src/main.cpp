@@ -13,6 +13,7 @@ int main() {
     if(input == "exit 0") break;
     if(input.substr(0, 4) == "echo") {
       std::cout << input.substr(5) << "\n";
+      std::cout << "$ ";
       continue;
     }
     if(input.substr(0, 4) == "type") {
