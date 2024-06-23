@@ -13,10 +13,9 @@ int main() {
     if(input == "exit 0") break;
     if(input.substr(0, 4) == "echo") std::cout << input.substr(5) << "\n";
     if(input.substr(0, 4) == "type") {
-      if(input.substr(5) == "echo") std::cout << "echo is a shell builtin\n";
-      if(input.substr(5) == "exit") std::cout << "exit is a shell builtin\n";
-      if(input.substr(5) == "type") std::cout << "type is a shell builtin\n";
-      else std::cout << input.substr(5) << ": command not found\n";
+      std::string user_input = input.substr(5);
+      if(user_input == "echo" || user_input == "type" || user_input == "exit") std::cout << user_input << " is a shell builtin\n";
+      else std::cout << input.substr(5) << ": not found\n";
       std::cout << "$ ";
       continue;
     }
