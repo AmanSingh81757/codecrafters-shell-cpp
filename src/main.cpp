@@ -40,7 +40,7 @@ void handleEcho(string input){
 
 void handleType(string input){
   std::string user_input = input.substr(5);
-  if(user_input == "echo" || user_input == "type" || user_input == "exit") std::cout << user_input << " is a shell builtin\n";
+  if(user_input == "echo" || user_input == "type" || user_input == "exit" || user_input == "pwd") std::cout << user_input << " is a shell builtin\n";
   else {
     std::string path = get_path(user_input);
     if(path == "") std::cout << user_input << ": not found\n";
