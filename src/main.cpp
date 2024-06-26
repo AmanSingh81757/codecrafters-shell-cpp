@@ -78,6 +78,14 @@ void handleRunProgram(string input){
   std::cout << "$ ";
 }
 
+void handlePwd(string input){
+  std::cout<<"present working directory\n";
+  std::string cwd = std::filesystem::current_path();
+  std::string print_cwd = cwd.substr(0, cwd.length());
+  std::cout << print_cwd << "\n";
+  std::cout << "$ ";
+}
+
 int main() {
   // Flush after every std::cout / std:cerr
   std::cout << std::unitbuf;
@@ -90,10 +98,7 @@ int main() {
     std::getline(std::cin, input);
     std::string user_input = input.substr(5);
     if(input == "pwd" and input.size() >= 3){
-      std::string cwd = std::filesystem::current_path();
-      std::string print_cwd = cwd.substr(0, cwd.length());
-      std::cout << print_cwd << "\n";
-      std::cout << "$ ";
+      handlePwd(input);
       continue;
     }
     else if(input == "exit 0" and input.size()>=6) break;
