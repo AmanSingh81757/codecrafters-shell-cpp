@@ -84,6 +84,17 @@ void handlePwd(){
   std::cout << "$ ";
 }
 
+void handleCd(const string input){
+  string path = input.substr(3);
+  if(filesystem::exists(path)){
+      std::filesystem::current_path() = path;
+  }
+  else{
+    cout<<"cd: "<<path<<": No such file or directory\n";
+  }
+  std::cout << "$ ";
+}
+
 int main() {
   // Flush after every std::cout / std:cerr
   std::cout << std::unitbuf;
@@ -94,12 +105,15 @@ int main() {
   while(true) {
     std::string input;
     std::getline(std::cin, input);
-    if(input == "pwd"){
+    if(input.substr(0, 2) == "cd"){
+      handleCd(input);
+      continue;
+    }
+    else if(input == "pwd"){
       handlePwd();
       continue;
     }
-    std::string user_input = input.substr(5);
-    if(input == "exit 0") break;
+    else if(input == "exit 0") break;
     else if(input.substr(0, 4) == "echo") {
       handleEcho(input);
       continue;
