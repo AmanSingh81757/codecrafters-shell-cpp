@@ -45,7 +45,7 @@ int main() {
       continue;
     }
     else{
-      std::cout << user_input << ": command not found\n";
+      std::cout << input << ": command not found\n";
     }
     std::cout << "$ ";
   }
