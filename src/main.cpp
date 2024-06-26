@@ -17,6 +17,49 @@ std::string get_path(std::string command){
     return "";
 }
 
+void handleEcho(string input){
+  std::cout << input.substr(5) << "\n";
+  std::cout << "$ ";
+}
+
+void handleType(string input){
+  std::cout << input.substr(5) << " is a shell builtin\n";
+  std::string user_input = input.substr(5);
+  if(user_input == "echo" || user_input == "type" || user_input == "exit") std::cout << user_input << " is a shell builtin\n";
+  else {
+    std::string path = get_path(user_input);
+    if(path == "") std::cout << user_input << ": not found\n";
+    else std::cout << user_input << " is " << path << "\n";
+  }
+  std::cout << "$ ";
+}
+
+void handleCommandNotFound(string input){
+  std::cout << input << ": command not found\n";
+}
+
+void handleRunProgram(string input){
+  string command = "", param = "";
+  int i = 0;
+  while(i<input.size() && input[i] == ' ') {
+    command+=input[i];
+    i++;
+  }
+  while(i<input.size() && input[i] != ' ') {
+    param+=input[i];
+    i++;
+  }
+  string path = get_path(command);
+  if(path == ""){
+    handleCommandNotFound(input);
+    return;
+  }
+  cout << "./ "<< path << " " << param << "\n";
+  string output = "";
+  cin>>output;
+  cout<<output<<"\n";
+}
+
 int main() {
   // Flush after every std::cout / std:cerr
   std::cout << std::unitbuf;
@@ -30,23 +73,16 @@ int main() {
     std::string user_input = input.substr(5);
     if(input == "exit 0") break;
     if(input.substr(0, 4) == "echo") {
-      std::cout << input.substr(5) << "\n";
-      std::cout << "$ ";
+      handleEcho(input);
       continue;
     }
     if(input.substr(0, 4) == "type") {
-      if(user_input == "echo" || user_input == "type" || user_input == "exit") std::cout << user_input << " is a shell builtin\n";
-      else {
-        std::string path = get_path(user_input);
-        if(path == "") std::cout << user_input << ": not found\n";
-        else std::cout << user_input << " is " << path << "\n";
-      }
-      std::cout << "$ ";
+      handleType(input);
       continue;
     }
     else{
-      std::cout << input << ": command not found\n";
+      handleRunProgram(input);
+      handleCommandNotFound(input);
     }
-    std::cout << "$ ";
   }
 }
