@@ -3,6 +3,9 @@
 #include <filesystem>
 #include <cstdio>
 #include <memory>
+#include <stdexcept>
+#include <array>
+
 using namespace std;
 
 std::string exec(const std::string& command) {
