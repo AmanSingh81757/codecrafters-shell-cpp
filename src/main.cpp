@@ -71,7 +71,7 @@ void handleRunProgram(string input){
     return;
   }
   string output = exec(command + " " + param);
-  cout << output << "\n";
+  cout << "output is: "<< output << "\n";
 }
 
 int main() {
