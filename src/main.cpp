@@ -80,9 +80,8 @@ void handleRunProgram(string input){
 
 void handlePwd(string input){
   std::cout<<"present working directory\n";
-  std::string cwd = std::filesystem::current_path();
-  std::string print_cwd = cwd.substr(0, cwd.length());
-  std::cout << print_cwd << "\n";
+  // std::string cwd = std::filesystem::current_path().string();
+  // std::cout << cwd << "\n";
   std::cout << "$ ";
 }
 
