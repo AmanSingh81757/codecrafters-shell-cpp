@@ -90,6 +90,11 @@ int main() {
     std::getline(std::cin, input);
     std::string user_input = input.substr(5);
     if(input == "exit 0") break;
+    if(input == "pwd"){
+      std::cout << filesystem::current_path() << "\n";
+      std::cout << "$ ";
+      continue;
+    }
     if(input.substr(0, 4) == "echo") {
       handleEcho(input);
       continue;
