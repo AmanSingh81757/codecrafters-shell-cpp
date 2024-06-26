@@ -71,9 +71,8 @@ void handleRunProgram(string input){
     handleCommandNotFound(input);
     return;
   }
-  cout<<path<< " " << param<<"\n";
   string output = exec(command + " " + param);
-  cout << "output is: "<< output << "\n";
+  cout << output << "\n";
 }
 
 int main() {
