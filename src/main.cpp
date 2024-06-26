@@ -70,6 +70,7 @@ void handleRunProgram(string input){
     handleCommandNotFound(input);
     return;
   }
+  cout<<command + " " + param<<"\n";
   string output = exec(command + " " + param);
   cout << "output is: "<< output << "\n";
 }
@@ -96,7 +97,6 @@ int main() {
     }
     else{
       handleRunProgram(input);
-      handleCommandNotFound(input);
     }
   }
 }
