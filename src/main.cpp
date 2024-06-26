@@ -73,6 +73,7 @@ void handleRunProgram(string input){
   }
   string output = exec(command + " " + param);
   cout << output << "\n";
+  std::cout << "$ ";
 }
 
 int main() {
@@ -81,8 +82,8 @@ int main() {
   std::cerr << std::unitbuf;
 
   // Uncomment this block to pass the first stage
+  std::cout << "$ ";
   while(true) {
-    std::cout << "$ ";
     std::string input;
     std::getline(std::cin, input);
     std::string user_input = input.substr(5);
