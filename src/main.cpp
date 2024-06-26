@@ -86,8 +86,9 @@ void handlePwd(){
 
 void handleCd(const string input){
   string path = input.substr(3);
+
   if(filesystem::exists(path)){
-      std::filesystem::current_path() = path;
+      std::filesystem::current_path(path);
   }
   else{
     cout<<"cd: "<<path<<": No such file or directory\n";
