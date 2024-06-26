@@ -89,19 +89,19 @@ int main() {
     std::string input;
     std::getline(std::cin, input);
     std::string user_input = input.substr(5);
-    if(input == "exit 0") break;
-    if(input == "pwd"){
+    if(input == "pwd" and input.size() >= 3){
       std::string cwd = std::filesystem::current_path();
       std::string print_cwd = cwd.substr(0, cwd.length());
       std::cout << print_cwd << "\n";
       std::cout << "$ ";
       continue;
     }
+    else if(input == "exit 0" and input.size()>=6) break;
     else if(input.substr(0, 4) == "echo") {
       handleEcho(input);
       continue;
     }
-    else if(input.substr(0, 4) == "type") {
+    else if(input.substr(0, 4) == "type" and input.size()>4) {
       handleType(input);
       continue;
     }
