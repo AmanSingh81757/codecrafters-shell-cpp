@@ -39,7 +39,6 @@ void handleEcho(string input){
 }
 
 void handleType(string input){
-  std::cout << input.substr(5) << " is a shell builtin\n";
   std::string user_input = input.substr(5);
   if(user_input == "echo" || user_input == "type" || user_input == "exit") std::cout << user_input << " is a shell builtin\n";
   else {
