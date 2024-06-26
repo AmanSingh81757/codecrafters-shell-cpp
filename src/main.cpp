@@ -97,11 +97,11 @@ int main() {
       std::cout << "$ ";
       continue;
     }
-    if(input.substr(0, 4) == "echo") {
+    else if(input.substr(0, 4) == "echo") {
       handleEcho(input);
       continue;
     }
-    if(input.substr(0, 4) == "type") {
+    else if(input.substr(0, 4) == "type") {
       handleType(input);
       continue;
     }
