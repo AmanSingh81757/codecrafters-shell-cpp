@@ -57,7 +57,7 @@ void handleCommandNotFound(string input){
 void handleRunProgram(string input){
   string command = "", param = "";
   int i = 0;
-  while(i<input.size() && input[i] == ' ') {
+  while(i<input.size() && input[i] != ' ') {
     command+=input[i];
     i++;
   }
