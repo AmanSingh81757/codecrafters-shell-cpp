@@ -61,6 +61,7 @@ void handleRunProgram(string input){
     command+=input[i];
     i++;
   }
+  i++;
   while(i<input.size() && input[i] != ' ') {
     param+=input[i];
     i++;
@@ -70,7 +71,7 @@ void handleRunProgram(string input){
     handleCommandNotFound(input);
     return;
   }
-  cout<<path<<command << " " << param<<"\n";
+  cout<<path<< " " << param<<"\n";
   string output = exec(command + " " + param);
   cout << "output is: "<< output << "\n";
 }
