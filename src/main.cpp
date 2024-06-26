@@ -91,7 +91,9 @@ int main() {
     std::string user_input = input.substr(5);
     if(input == "exit 0") break;
     if(input == "pwd"){
-      std::cout << filesystem::current_path() << "\n";
+      std::string cwd = std::filesystem::current_path();
+      std::string print_cwd = cwd.substr(0, cwd.length());
+      std::cout << print_cwd << "\n";
       std::cout << "$ ";
       continue;
     }
