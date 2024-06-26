@@ -78,7 +78,7 @@ void handleRunProgram(string input){
   std::cout << "$ ";
 }
 
-void handlePwd(string input){
+void handlePwd(){
   std::string cwd = std::filesystem::current_path().string();
   std::cout << cwd << "\n";
   std::cout << "$ ";
@@ -99,7 +99,7 @@ int main() {
     //   // handlePwd(input);
     //   continue;
     // }
-    if(input == "exit 0" and input.size()>=6) break;
+    if(input == "exit 0") break;
     else if(input.substr(0, 4) == "echo") {
       handleEcho(input);
       continue;
