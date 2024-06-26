@@ -94,11 +94,11 @@ int main() {
   while(true) {
     std::string input;
     std::getline(std::cin, input);
+    if(input == "pwd"){
+      handlePwd();
+      continue;
+    }
     std::string user_input = input.substr(5);
-    // if(input == "pwd"){
-    //   // handlePwd(input);
-    //   continue;
-    // }
     if(input == "exit 0") break;
     else if(input.substr(0, 4) == "echo") {
       handleEcho(input);
