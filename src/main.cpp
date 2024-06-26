@@ -71,8 +71,10 @@ void handleRunProgram(string input){
     handleCommandNotFound(input);
     return;
   }
-  string output = exec(command + " " + param);
-  cout << output << "\n";
+  // string output = exec(command + " " + param);
+  // cout << output << "\n";
+  string com = command + " " + param;
+  std::system(com.c_str());
   std::cout << "$ ";
 }
 
