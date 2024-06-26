@@ -38,7 +38,7 @@ int main() {
       if(user_input == "echo" || user_input == "type" || user_input == "exit") std::cout << user_input << " is a shell builtin\n";
       else {
         std::string path = get_path(user_input);
-        if(path == "") std::cout << user_input << " not found\n";
+        if(path == "") std::cout << user_input << ": not found\n";
         else std::cout << user_input << " is " << path << "\n";
       }
       std::cout << "$ ";
