@@ -86,8 +86,11 @@ void handlePwd(){
 
 void handleCd(const string input){
   string path = input.substr(3);
-
-  if(filesystem::exists(path)){
+  if(path == "~"){
+    path = std::getenv("HOME");
+    std::filesystem::current_path(path);
+  }
+  else if(filesystem::exists(path)){
       std::filesystem::current_path(path);
   }
   else{
