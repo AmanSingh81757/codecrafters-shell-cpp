@@ -27,6 +27,7 @@ int main() {
   while(true) {
     std::string input;
     std::getline(std::cin, input);
+    std::string user_input = input.substr(5);
     if(input == "exit 0") break;
     if(input.substr(0, 4) == "echo") {
       std::cout << input.substr(5) << "\n";
@@ -34,7 +35,6 @@ int main() {
       continue;
     }
     if(input.substr(0, 4) == "type") {
-      std::string user_input = input.substr(5);
       if(user_input == "echo" || user_input == "type" || user_input == "exit") std::cout << user_input << " is a shell builtin\n";
       else {
         std::string path = get_path(user_input);
@@ -43,6 +43,9 @@ int main() {
       }
       std::cout << "$ ";
       continue;
+    }
+    else{
+      std::cout << user_input << ": command not found\n";
     }
     std::cout << "$ ";
   }
