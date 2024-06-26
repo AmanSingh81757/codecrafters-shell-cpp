@@ -51,6 +51,7 @@ void handleType(string input){
 
 void handleCommandNotFound(string input){
   std::cout << input << ": command not found\n";
+  std::cout << "$ ";
 }
 
 void handleRunProgram(string input){
